@@ -1,0 +1,12 @@
+.Homepage{
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
+.Homepage:-webkit-scrollbar {
+    display: none;
+}
+.Homepage .select-data{
+   margin: 20px 0;
+}

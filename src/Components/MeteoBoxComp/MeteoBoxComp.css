@@ -1,0 +1,65 @@
+.MeteoBox{
+    width: 100%;
+   
+    position: relative;
+}
+
+
+.MeteoBox .meteo-hour{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    width: 80%;
+    margin: auto;
+    overflow-x: scroll; 
+}
+
+.MeteoBox .meteo-hour::-webkit-scrollbar {
+    display: none;
+}
+
+.MeteoBox .meteo-hour .box{
+   
+    height: 120px;
+    background-color: black;
+    font-weight: bold;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    
+}
+
+.MeteoBox  .scroll{
+    width: 100%;
+   
+    position: absolute;
+    top: 50%;
+    z-index:999;
+    display: flex;
+    justify-content: space-between;
+    color: blue;
+    font-size: 30px;
+}
+
+.MeteoBox .scroll button{
+    all: unset;
+    cursor: pointer;
+   
+}
+
+@media screen and (max-width: 600px){
+    .MeteoBox .meteo-hour{
+        grid-template-columns: repeat(3, 2fr);
+       
+    }
+
+    .MeteoBox .meteo-hour .box{
+        width: 100px;
+        height: 100px;
+        padding: 15px;
+    }
+}

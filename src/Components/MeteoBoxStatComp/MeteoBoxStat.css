@@ -1,0 +1,31 @@
+.bottom-section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%; 
+    background-color: white;
+}
+.bottom-section .stat{
+   
+    margin-bottom: 10px ;
+    height: 100px;
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+    background: #fffefe;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
+@media screen and (max-width: 600px){
+    .bottom-section{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bottom-section .stat{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 15px;
+        height: 80px;
+    }
+}
