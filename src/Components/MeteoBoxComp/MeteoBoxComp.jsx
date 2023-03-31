@@ -3,11 +3,12 @@ import '../MeteoBoxComp/MeteoBoxComp.css'
 import{dataFormatter, tempFormatter} from '../../Utility/DataFormatter'
 import {findBG} from "../../Asset/BgImg";
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
+
 export default function MeteoBoxComp(props) {
     const{meteoList}= props;
     const [data,setData]= useState(meteoList);
     const [start,setStart]= useState(0);
-    
+    const Max = 3;
     
    
     useEffect(() => {
@@ -17,21 +18,18 @@ export default function MeteoBoxComp(props) {
     
     
    console.log("meteo",meteoList);
-   console.log(start);
-    
-    
-    const right = ()=>{
-        console.log("asd",data.length-3);
-        if (start < data.length - 3) {
-            setStart(start+1) 
-            
-          }
+   
+   
+   const right = ()=>{
+        const newStart = (start + 1) % (data.length - 2)
+        setStart(newStart);
+        console.log((start + 1 )," ",(data.length - 2),"=",newStart);       
     }
     const left = ()=>{
-        if (start>0) {
-            setStart(start-1) 
-        }
-         
+        const newStart = (start - 1 + data.length - 2) % (data.length - 2) ;
+        setStart(newStart);
+        console.log((start - 1 + data.length - 2)," ",(data.length - 2),"=",newStart);
+        
     }
     // let px = 0
     
@@ -87,7 +85,7 @@ export default function MeteoBoxComp(props) {
                     }  */}
 
                     {
-                        data && data.slice(start,start+3).map(item =>(
+                        data && data.slice(start,start+Max).map(item =>(
                             <div 
                             id="box"
                             className="box"
